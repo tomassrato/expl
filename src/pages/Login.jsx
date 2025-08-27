@@ -12,31 +12,25 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
+  const VALID_USER = "admin67";
+  const VALID_PASS = "teste123";
+
   const generateToken = (username) => {
-    const payload = {
-      username,
-      timestamp: Date.now(),
-    };
+    const payload = { username, timestamp: Date.now() };
     return btoa(JSON.stringify(payload));
   };
 
-  const handleLogin = async () => {
-    try {
-        const res = await fetch("http://localhost:4000/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-        });
-
-        if (!res.ok) throw new Error("Username ou password inválidos");
-
-        const data = await res.json();
-        sessionStorage.setItem("token", data.token);
-        navigate("/unidadescurriculares");
-    } catch (err) {
-        setError(err.message);
+  const handleLogin = () => {
+    if (username === VALID_USER && password === VALID_PASS) {
+      const token = generateToken(username);
+      sessionStorage.setItem("token", token);
+      navigate("/unidadescurriculares");
+    } else {
+      setError("Username ou password inválidos!");
+      setNotification(true);
+      setTimeout(() => setNotification(false), 2000);
     }
-    };
+  };
 
   return (
     <div className="relative flex items-center justify-center overflow-hidden" style={{ height: "100dvh" }}>
