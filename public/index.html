@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      (() => {
+        const stored = localStorage.getItem("darkMode");
+        const isDark = stored !== null
+          ? stored === "true"
+          : window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        if (isDark) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
+
     <title>Explicação</title>
     <link rel="icon" type="image/png" href="letter_E.png">
   </head>
-  <body>
+  <body class="bg-[#fafafa] dark:bg-[#111827] transition-none">
     <div id="root"></div>
   </body>
 </html>

@@ -61,7 +61,7 @@ function Login() {
           className="w-full bg-gray-200 dark:bg-gray-800 py-[10px] text-black dark:text-white pl-[15px] rounded-[30px] border border-yellow-400 dark:border-purple-600 focus:outline-none mb-[15px] focus:ring-2 focus:ring-yellow-400 dark:focus:ring-purple-600"
         />
 
-        <div className="relative w-full mb-[40px]">
+        <div className="relative w-full mb-[2dvh]">
           <input
             placeholder="Password"
             type={showPassword ? "text" : "password"}

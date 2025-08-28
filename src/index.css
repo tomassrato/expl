@@ -25,8 +25,10 @@ body {
 }
 
 html, body, div, span, p, h1, h2, h3, h4, h5, h6, svg, path, button, a, input {
-  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, fill 0.5s ease, stroke 0.5s ease;
+  transition: background-color 0.5s ease, color 0.5s ease,
+              border-color 0.5s ease, fill 0.5s ease, stroke 0.5s ease;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
